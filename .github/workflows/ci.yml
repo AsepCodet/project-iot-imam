@@ -33,6 +33,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Debug Environment Variable in Node.js
+        run: node -e "console.log(process.env.FIREBASE_SECRETSERVICE)"
+
+
       - name: Deploy to Firebase
         run: 
           node server.js
