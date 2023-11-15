@@ -14,7 +14,7 @@ if (!process.env.DATABASE_URL) {
 
 // Initialize Firebase Admin SDK
 admin.initializeApp({
-  credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SECRETSERVICE)),
+  credential: admin.credential.cert(process.env.FIREBASE_SECRETSERVICE),
   databaseURL: process.env.DATABASE_URL,
 });
 
