@@ -2,7 +2,5 @@
 node_modules/
 sdk/
 
-#Unecessary File
 package.json
 package-lock.json
-tempCodeRunnerFile.js
