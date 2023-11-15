@@ -29,7 +29,7 @@ jobs:
         run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
         env:
             DATABASE_URL: ${{ secrets.DATABASE_URL }}
-            
+
       - name: Decode Firebase Service Account
         run: echo $FIREBASE_SECRETSERVICE | base64 --decode > serviceAccountKey.json
 
@@ -42,6 +42,13 @@ jobs:
       - name: Debug Environment Variable 2 in Node.js
         run: node -e "console.log(process.env.DATABASE_URL)"
 
-      - name: Deploy to Firebase
+      - name: Install pm2
+        run: npm install -g pm2
+      
+      - name: Deploy to Server
         run: 
-          node server.js
+            pm2 start server.js
+    
+      - name: Stop Server
+        run: pm2 stop all
+          
