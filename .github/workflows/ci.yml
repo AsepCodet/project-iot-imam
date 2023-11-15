@@ -20,7 +20,7 @@ jobs:
 
       - name: Read Firebase service account
         id: read-json
-        run: echo "$FIREBASE_SECRETSERVICE" >> $GITHUB_ENV
+        run: echo "FIREBASE_SECRETSERVICE=${{ secrets.FIREBASE_SECRETSERVICE }}" >> $GITHUB_ENV
         env:
             FIREBASE_SECRETSERVICE: ${{ secrets.FIREBASE_SECRETSERVICE }}
 
@@ -33,9 +33,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Debug Environment Variable in Node.js
+      - name: Debug Environment Variable 1 in Node.js
         run: node -e "console.log(process.env.FIREBASE_SECRETSERVICE)"
 
+      - name: Debug Environment Variable 2 in Node.js
+        run: node -e "console.log(process.env.DATABASE_URL)"
 
       - name: Deploy to Firebase
         run: 
