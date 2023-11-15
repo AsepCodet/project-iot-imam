@@ -16,22 +16,23 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20.5.1
+          node-version: 14
 
       - name: Read Firebase service account
         id: read-json
-        run: echo "${{ secrets.FIREBASE_SECRETSERVICE }}" > serviceAccount
+        run: echo "$FIREBASE_SECRETSERVICE" >> $GITHUB_ENV
+        env:
+            FIREBASE_SECRETSERVICE: ${{ secrets.FIREBASE_SECRETSERVICE }}
 
       - name: Read Firebase Url
         id: read-url
-        run: echo "${{ secrets.DATABASE_URL }}" > databaseURL
+        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
+        env:
+            DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Install dependencies
         run: npm install
 
       - name: Deploy to Firebase
-        env:
-            FIREBASE_SECRETSERVICE: ${{ secrets.FIREBASE_SECRETSERVICE }}
-            DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: |
+        run: 
           node server.js
