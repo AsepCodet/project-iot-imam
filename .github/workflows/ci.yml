@@ -20,7 +20,7 @@ jobs:
 
       - name: Read Firebase service account
         id: read-json
-        run: echo "FIREBASE_SECRETSERVICE='${{ secrets.FIREBASE_SECRETSERVICE }}'" >> $GITHUB_ENV
+        run: echo "FIREBASE_SECRETSERVICE=${{ secrets.FIREBASE_SECRETSERVICE }}" >> $GITHUB_ENV
         env:
             FIREBASE_SECRETSERVICE: ${{ secrets.FIREBASE_SECRETSERVICE }}
 
