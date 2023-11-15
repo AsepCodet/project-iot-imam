@@ -19,11 +19,11 @@ jobs:
           node-version: 20.5.1
 
       - name: Read Firebase service account
-        id: read-json-1
+        id: read-json
         run: echo "${{ secrets.FIREBASE_SECRETSERVICE }}" > serviceAccount
 
       - name: Read Firebase Url
-        id: read-json-2
+        id: read-url
         run: echo "${{ secrets.DATABASE_URL }}" > databaseURL
 
       - name: Install dependencies
