@@ -1,12 +1,21 @@
 /* firebaseConfig.js */
 import admin from 'firebase-admin';
 
-const serviceAccount = JSON.parse(process.env.FIREBASE_SECRETSERVICE);
-const databaseURL = process.env.DATABASE_URL
+// Check if the environment variables are defined
+if (!process.env.FIREBASE_SECRETSERVICE) {
+  console.error('Firebase service account JSON is not defined. Exiting...');
+  process.exit(1);
+}
 
+if (!process.env.DATABASE_URL) {
+  console.error('Database URL is not defined. Exiting...');
+  process.exit(1);
+}
+
+// Initialize Firebase Admin SDK
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: databaseURL,
+  credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SECRETSERVICE)),
+  databaseURL: process.env.DATABASE_URL,
 });
 
 export default admin;
