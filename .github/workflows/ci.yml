@@ -29,6 +29,9 @@ jobs:
         run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
         env:
             DATABASE_URL: ${{ secrets.DATABASE_URL }}
+            
+      - name: Decode Firebase Service Account
+        run: echo $FIREBASE_SECRETSERVICE | base64 --decode > serviceAccountKey.json
 
       - name: Install dependencies
         run: npm install
