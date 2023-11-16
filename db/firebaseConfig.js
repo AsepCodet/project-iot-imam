@@ -1,5 +1,7 @@
 /* firebaseConfig.js */
 import admin from 'firebase-admin';
+import { config } from 'dotenv'
+config();
 
 // Check if the environment variables are defined
 if (!process.env.FIREBASE_SECRETSERVICE) {
