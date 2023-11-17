@@ -23,11 +23,11 @@ function fetchDataAndUpdate() {
       var formattedTimestamp = formatTimestamp(timestamp);
 
       // Update the HTML content with individual variables
-      document.getElementById("kelembapanDHT1").innerHTML = kelembapanDHT1 + " %";
-      document.getElementById("suhuDHT1").innerHTML = suhuDHT1 + " °C";
-      document.getElementById("kelembapanDHT2").innerHTML = kelembapanDHT2 + " %";
-      document.getElementById("suhuDHT2").innerHTML = suhuDHT2 + " °C" ;
-      document.getElementById("suhuPemanas").innerHTML =suhuPemanas + " °C" ;
+      document.getElementById("kelembapanDHT1").innerHTML = kelembapanDHT1.toFixed(0) + " %";
+      document.getElementById("suhuDHT1").innerHTML = suhuDHT1.toFixed(1) + " °C";
+      document.getElementById("kelembapanDHT2").innerHTML = kelembapanDHT2.toFixed(0) + " %";
+      document.getElementById("suhuDHT2").innerHTML = suhuDHT2.toFixed(1) + " °C" ;
+      document.getElementById("suhuPemanas").innerHTML =suhuPemanas.toFixed(2) + " °C" ;
       document.getElementById("timestamp").innerHTML = "Waktu : " + formattedTimestamp;
         // Update HTML elements with the received data
         // Your code to update the HTML with the received data
