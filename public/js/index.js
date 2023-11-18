@@ -5,11 +5,15 @@ function formatTimestamp(epoch) {
 
 function fetchDataAndUpdate() {
   fetch('/getData') // Replace with your backend URL
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      return response.json();
+    })
     .then(data => {
       // Process the received data, e.g., update HTML elements
-      console.log(data); // For demonstration purposes
-
+      // console.log(data);
 
       // Update individual variables
       var kelembapanDHT1 = data["Kelembapan DHT 1"];
@@ -26,13 +30,12 @@ function fetchDataAndUpdate() {
       document.getElementById("kelembapanDHT1").innerHTML = kelembapanDHT1.toFixed(0) + " %";
       document.getElementById("suhuDHT1").innerHTML = suhuDHT1.toFixed(1) + " °C";
       document.getElementById("kelembapanDHT2").innerHTML = kelembapanDHT2.toFixed(0) + " %";
-      document.getElementById("suhuDHT2").innerHTML = suhuDHT2.toFixed(1) + " °C" ;
-      document.getElementById("suhuPemanas").innerHTML =suhuPemanas.toFixed(2) + " °C" ;
-      document.getElementById("timestamp").innerHTML = "Waktu : " + formattedTimestamp;
-        // Update HTML elements with the received data
-        // Your code to update the HTML with the received data
+      document.getElementById("suhuDHT2").innerHTML = suhuDHT2.toFixed(1) + " °C";
+      document.getElementById("suhuPemanas").innerHTML = suhuPemanas.toFixed(2) + " °C";
+      //document.getElementById("timestamp").innerHTML = "Waktu : " + formattedTimestamp;
     })
     .catch(error => {
+      // Handle errors more gracefully, e.g., display a message to the user
       console.error('Error fetching data:', error);
     });
 }

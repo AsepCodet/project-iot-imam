@@ -1,11 +1,21 @@
 /* routes.js */
-import { getStreamData, pushData } from '../db/dataController.js';
+import { getStreamData, pushData, getDataLog } from '../db/dataController.js';
 
-async function getDataRouteHandler(req, res) {
+async function getData(req, res) {
   try {
     const data = await getStreamData('imam/Data');
     res.json(data);
     //res.write(`data: ${JSON.stringify(data)}\n\n`);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
+async function getDb(req, res) {
+  try {
+    const data = await getDataLog('DB');
+    res.json(data);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });
@@ -28,5 +38,5 @@ async function scheduledTask() {
   }
 }
 
-export { getDataRouteHandler, scheduledTask };
+export { getData, scheduledTask, getDb };
 
