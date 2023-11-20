@@ -28,7 +28,6 @@ async function scheduledTask() {
     if (currentMinute%5===0){
       console.log('Fetching data...');
       const data = await getStreamData('imam/Data');
-      console.log('Data fetched:', data);
       console.log('Pushing data to Firebase...');
       pushData('DB/', data);
       console.log('Scheduled task is running...');

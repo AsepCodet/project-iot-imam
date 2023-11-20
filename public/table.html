@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabel</title>
+
+    <!-- include to use jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <div class="navbar">
+          <a href="/index.html">
+            <div>Project Imam</div>
+          </a>
+          <button id="menumobile" class="menu-mobile" type="button">
+            <i class="bx bx-menu"></i>
+          </button>
+          <nav id="menunav" class="menu">
+            <a href="/index.html">Home</a>
+            <a href="/grafik.html">Grafik</a>
+            <a href="/table.html">Data</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="section-table">
+        <div class="selection">
+          <select name="SelectTable" id="tableSel">
+            <option value="" disabled selected>Select Date</option>
+          </select>
+          <button class="buttonSel" id="refreshButton"><i class='bx bx-refresh'></i></button>
+          <button id="exportButton"><i class='bx bxs-save'></i></button>
+
+        </div>
+        <div class="div-table">
+          <table id="tabelID">
+            <thead>
+              <tr>
+                <th rowspan="2">Time</th>
+                <th colspan="2">Suhu</th>
+                <th colspan="2">Kelembaban</th>
+                <th rowspan="2">Suhu Heater</th>
+              </tr>
+              <tr>
+                <th>DHT 1</th>
+                <th>DHT 2</th>
+                <th>DHT 1</th>
+                <th>DHT 2</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+
+              <!-- Add more rows as needed with your actual data -->
+            </tbody>
+          </table>          
+        </div>
+      </section>
+    </main>
+    <footer>© 2023 Imam M & Asep Codet</footer>
+    <script src="../js/table.js"></script>
+    <script>
+      const buttonEl = document.getElementById("menumobile");
+      const menuEl = document.getElementById("menunav");
+      buttonEl.addEventListener("click", () => {
+        if (menuEl.classList.contains("show")) {
+          menuEl.classList.remove("show");
+        } else {
+          menuEl.classList.add("show");
+        }
+      });
+    </script>
+  </body>
+</html>

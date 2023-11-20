@@ -44,19 +44,18 @@ function getDataLog(path, res) {
 
 async function pushData(path, data) {
   try {
-    var timestamp = data["Timestamp"];
-    var now = new Date().getTime() / 1000;
+    var timestamp = data["Timestamp"] * 1000;
+    var now = new Date().getTime();
+    const timeDiff = Math.abs(28790000-Math.abs(now - timestamp));
+    console.log("Timestamp different on arduino & API :", timeDiff);
 
-    console.log("Timestamp:", timestamp);
-    console.log("Current time:", now);
-
-    if (now - timestamp <= 360) {
+    if (timeDiff <= 360000) {
       console.log("Timestamp condition met. Proceeding to push data...");
 
       const db = admin.database();
       const today = new Date();
       const options = {
-        weekday: "short",
+       /* weekday: "short", */
         year: "numeric",
         month: "short",
         day: "numeric",
