@@ -21,7 +21,9 @@ function fetchDataAndUpdate() {
       var suhuDHT1 = data["Suhu DHT 1"];
       var suhuDHT2 = data["Suhu DHT 2"];
       var suhuPemanas = data["Suhu Pemanas"];
-      var timestamp = data["Timestamp"];
+      var timestamp = data["Timestamp"] * 1000;
+
+      var now = new Date().getTime();
 
       // Convert epoch timestamp to human-readable date and time
       var formattedTimestamp = formatTimestamp(timestamp);
@@ -32,7 +34,12 @@ function fetchDataAndUpdate() {
       document.getElementById("kelembapanDHT2").innerHTML = kelembapanDHT2.toFixed(0) + " %";
       document.getElementById("suhuDHT2").innerHTML = suhuDHT2.toFixed(1) + " °C";
       document.getElementById("suhuPemanas").innerHTML = suhuPemanas.toFixed(2) + " °C";
-      //document.getElementById("timestamp").innerHTML = "Waktu : " + formattedTimestamp;
+      const timeDiff = Math.abs(28790000-Math.abs(now - timestamp));
+      if (timeDiff <= 360000){
+
+      }else{
+
+      }
     })
     .catch(error => {
       // Handle errors more gracefully, e.g., display a message to the user

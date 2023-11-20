@@ -2,9 +2,12 @@
 import express from 'express';
 import { getData,scheduledTask, getDb } from './routes/routes.js';
 import cron from 'node-cron';
+
 const app = express();
 
 app.use(express.static('public'));
+app.use(express.static('public', { index: 'html/index.html' }));
+
 
 app.get('/getdata', getData);
 app.get('/getdb', getDb);
