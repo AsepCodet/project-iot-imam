@@ -104,6 +104,7 @@ footer {
   padding: 0;
   color: #000;
   border-top: 1px solid #e2ebfa;
+  font-size: smaller;
 }
 .dht-2 {
   background: linear-gradient(
