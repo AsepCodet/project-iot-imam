@@ -7,7 +7,8 @@
 
     <!-- include to use jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <link rel="stylesheet" href="/css/style.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -32,10 +33,30 @@
         </div>
       </div>
     </header>
-
+    <main>
+      <section class="section-graph">
+        <div class="selection">
+          <select name="SelectGraph" id="graphSel">
+            <option value="" disabled selected>Select Date</option>
+          </select>
+          <!-- <button id="exportButton"><i class='bx bxs-save'></i></button> -->
+        </div>
+        <div class="contain-switch">
+          <img src="/img/humidity.png" class="imgC"/>
+          <label class="switch">
+            <input type="checkbox" id="myCheckbox">
+            <span class="slider round"></span>
+          </label>
+          <img src="/img/hot.png" class="imgC"/>
+        </div>
+        <div id="chart-container">
+          <canvas id="myChart" width="800" height="400"></canvas>
+        </div>
+      </section>
+    </main>
     <footer>© 2023 Imam M & Asep Codet</footer>
     
-    <script src="/js/index.js"></script>
+    <script src="/js/grafik.js"></script>
     <script>
       const buttonEl = document.getElementById("menumobile");
       const menuEl = document.getElementById("menunav");

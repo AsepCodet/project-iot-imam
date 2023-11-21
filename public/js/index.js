@@ -1,7 +1,4 @@
-function formatTimestamp(epoch) {
-  var date = new Date(epoch * 1000); // Convert to milliseconds
-  return date.toLocaleString(); // Convert to local date and time format
-}
+
 
 function fetchDataAndUpdate() {
   fetch('/getData') // Replace with your backend URL
@@ -24,9 +21,6 @@ function fetchDataAndUpdate() {
       var timestamp = data["Timestamp"] * 1000;
 
       var now = new Date().getTime();
-
-      // Convert epoch timestamp to human-readable date and time
-      var formattedTimestamp = formatTimestamp(timestamp);
 
       // Update the HTML content with individual variables
       document.getElementById("kelembapanDHT1").innerHTML = kelembapanDHT1.toFixed(0) + " %";

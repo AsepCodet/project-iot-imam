@@ -1,3 +1,8 @@
+function formatTimestamp(epoch) {
+  var date = new Date(epoch * 1000); // Convert to milliseconds
+  return date.toUTCString(); // Convert to local date and time format
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const tableSelect = document.getElementById("tableSel");
   const tableBody = document.getElementById("tableBody");
@@ -55,9 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (property === "Timestamp") {
           // Convert epoch time to human-readable date
           const timestampValue = rowData[property];
-          const newDate = new Date(
-            timestampValue * 1000
-          ).toLocaleString();
+          const newDate = formatTimestamp(timestampValue)
           dataCell.textContent = newDate;
         } else {
           // For other properties, simply display the value

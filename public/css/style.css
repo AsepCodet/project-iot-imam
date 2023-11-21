@@ -189,7 +189,7 @@ footer {
 
 .selection {
   display: flex;
-  width: 400px;
+  width: auto;
   height: auto;
   justify-content: center;
 }
@@ -198,10 +198,12 @@ footer {
   padding: 5px;
   font-size: 16px;
   justify-self: center;
+  
 }
 table {
   border-collapse: collapse;
   width: 80%;
+  
 }
 th,
 td {
@@ -219,8 +221,81 @@ th:hover {
   width: 100%;
   justify-content: center;
 }
+/* GRAPH SECTION */
+.section-graph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#graphSel {
+  width: 150px;
+  padding: 5px;
+  font-size: 16px;
+  justify-self: center;
+}
+#myChart{
+  width: 1080px;
+  height: 400px;
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 13px;
+  bottom: -1px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 9px;
+  width: 9px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(6px);
+  -ms-transform: translateX(6px);
+  transform: translateX(6px);
+}
 
 
+.imgC{
+  width: 23px;
+  height: 23px;
+}
 
 
 
@@ -256,5 +331,12 @@ th:hover {
   }
   .ds18b20 {
     height: 200px;
+  }
+  #tabelID{
+    font-size: 8px;
+  }
+  #myChart{
+    width: 400px;
+    height: 400px;
   }
 }
