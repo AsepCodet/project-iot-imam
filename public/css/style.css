@@ -46,6 +46,14 @@ body {
   font-size: 25px;
   font-style: italic;
 }
+#statusSensor{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dd2c00;
+  font-weight: 800;
+  font-style: italic;
+}
 /* SECTION NAV*/
 .navbar {
   display: flex;

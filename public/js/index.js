@@ -29,10 +29,11 @@ function fetchDataAndUpdate() {
       document.getElementById("suhuDHT2").innerHTML = suhuDHT2.toFixed(1) + " °C";
       document.getElementById("suhuPemanas").innerHTML = suhuPemanas.toFixed(2) + " °C";
       const timeDiff = Math.abs(28790000-Math.abs(now - timestamp));
+      var status = document.getElementById("statusSensor")
       if (timeDiff <= 360000){
-
+        status.innerHTML="";
       }else{
-
+        status.innerHTML="Server ESP Mati";
       }
     })
     .catch(error => {
