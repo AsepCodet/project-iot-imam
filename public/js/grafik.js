@@ -146,7 +146,7 @@ function createChartTemperature(data) {
         },
         {
           label: "SUHU Pemanas",
-          data: tempDHT2,
+          data: tempHeater,
           borderColor: "red",
           //borderWidth: 1,
           fill: false,
