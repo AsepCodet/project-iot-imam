@@ -46,7 +46,7 @@ async function pushData(path, data) {
   try {
     var timestamp = data["Timestamp"] * 1000;
     var now = new Date().getTime();
-    const timeDiff = Math.abs(28790000-Math.abs(now - timestamp));
+    const timeDiff = Math.abs(28800000-Math.abs(now - timestamp));
     console.log("Timestamp different on arduino & API :", timeDiff);
 
     if (timeDiff <= 360000) {
@@ -61,9 +61,9 @@ async function pushData(path, data) {
         day: "numeric",
       };
       const formattedDate = today.toLocaleDateString("id-ID", options);
-      const ref = db.ref(path + formattedDate);
+      const reffer = db.ref(path + formattedDate);
 
-      await ref.push(data);
+      await reffer.push(data);
       console.log("Data pushed to another path:", data);
     } else {
       console.log("Timestamp condition not met. Data not pushed.");
